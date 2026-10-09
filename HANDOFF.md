@@ -35,8 +35,8 @@ _Entry points, important modules, config, secrets location (not values)._
 
 - **Project:** `btc-balance-checker`
 - **Branch:** `main`
-- **Last updated:** 2026-10-09 04:07:35 -03
-- **Built on commit:** (no commits yet)
+- **Last updated:** 2026-10-09 04:29:33 -03
+- **Built on commit:** 8c56909 — feat: rewrite BTC Balance Checker in Rust/Tauri 2 with web app and landing page (Jonathan Carbiere, 2026-10-09)
 - **README says:** Watch Bitcoin addresses in bulk and get a Telegram and/or email alert the first time an address shows a balance. Rust + Tauri 2 desktop app (Windows, macOS, Linux), a lite in-browser checker, and a landing page. Read-only: it only ever handles public addresses.
 
 ## How to build / run / test
@@ -52,6 +52,7 @@ _Entry points, important modules, config, secrets location (not values)._
 - .github/
 - .gitignore
 - ai/
+- HANDOFF.md
 - legacy/
 - netlify.toml
 - package-lock.json
@@ -66,7 +67,7 @@ _Entry points, important modules, config, secrets location (not values)._
 
 ## Languages
 
-- .md — 29 file(s)
+- .md — 30 file(s)
 - .png — 15 file(s)
 - .rs — 11 file(s)
 - .js — 7 file(s)
@@ -81,105 +82,11 @@ _Entry points, important modules, config, secrets location (not values)._
 
 ## Changes in this commit
 
-- A	.github/workflows/build.yml
-- A	.gitignore
-- A	README.md
-- A	ai/accessibility.md
-- A	ai/brand.md
-- A	ai/changelog.md
-- A	ai/components.md
-- A	ai/constraints.md
-- A	ai/content.md
-- A	ai/data-model.md
-- A	ai/decisions.md
-- A	ai/dependencies.md
-- A	ai/deployment.md
-- A	ai/design-system.md
-- A	ai/environments.md
-- A	ai/interactions.md
-- A	ai/known-issues.md
-- A	ai/maintenance.md
-- A	ai/manifest.md
-- A	ai/orchestrator.md
-- A	ai/pages.md
-- A	ai/performance.md
-- A	ai/product.md
-- A	ai/project-overview.md
-- A	ai/project-state.md
-- A	ai/security.md
-- A	ai/testing.md
-- A	ai/validation-checklist.md
-- A	ai/visual-language.md
-- A	legacy/JCBalance.py
-- A	legacy/requirements.txt
-- A	netlify.toml
-- A	package-lock.json
-- A	package.json
-- A	playwright.config.js
-- A	scripts/sync-ui.sh
-- A	site/app/addr.js
-- A	site/app/app.css
-- A	site/app/app.js
-- A	site/app/index.html
-- A	site/app/index.md
-- A	site/favicon.ico
-- A	site/favicon.svg
-- A	site/fonts/grotesk.woff2
-- A	site/fonts/mono.woff2
-- A	site/index.html
-- A	site/index.md
-- A	site/ledger.css
-- A	site/llms.txt
-- A	site/logo.svg
-- A	site/site.css
-- A	site/site.js
-- A	src-tauri/Cargo.lock
-- A	src-tauri/Cargo.toml
-- A	src-tauri/build.rs
-- A	src-tauri/capabilities/default.json
-- A	src-tauri/icons/128x128.png
-- A	src-tauri/icons/128x128@2x.png
-- A	src-tauri/icons/32x32.png
-- A	src-tauri/icons/64x64.png
-- A	src-tauri/icons/Square107x107Logo.png
-- A	src-tauri/icons/Square142x142Logo.png
-- A	src-tauri/icons/Square150x150Logo.png
-- A	src-tauri/icons/Square284x284Logo.png
-- A	src-tauri/icons/Square30x30Logo.png
-- A	src-tauri/icons/Square310x310Logo.png
-- A	src-tauri/icons/Square44x44Logo.png
-- A	src-tauri/icons/Square71x71Logo.png
-- A	src-tauri/icons/Square89x89Logo.png
-- A	src-tauri/icons/StoreLogo.png
-- A	src-tauri/icons/icon.icns
-- A	src-tauri/icons/icon.ico
-- A	src-tauri/icons/icon.png
-- A	src-tauri/src/address.rs
-- A	src-tauri/src/alerts.rs
-- A	src-tauri/src/api.rs
-- A	src-tauri/src/cli.rs
-- A	src-tauri/src/gui.rs
-- A	src-tauri/src/lib.rs
-- A	src-tauri/src/main.rs
-- A	src-tauri/src/scan.rs
-- A	src-tauri/src/settings.rs
-- A	src-tauri/src/store.rs
-- A	src-tauri/tauri.conf.json
-- A	src/app.css
-- A	src/app.js
-- A	src/fonts/grotesk.woff2
-- A	src/fonts/mono.woff2
-- A	src/index.html
-- A	src/ledger.css
-- A	src/logo.svg
-- A	tests/addr.test.mjs
-- A	tests/desktop.spec.js
-- A	tests/sample-addresses.txt
-- A	tests/serve.mjs
-- A	tests/web.spec.js
+- M	ai/changelog.md
+- M	ai/project-state.md
 
 ## Recent history
 
-- (no commits yet)
+- 8c56909 feat: rewrite BTC Balance Checker in Rust/Tauri 2 with web app and landing page _(Jonathan Carbiere, 2026-10-09)_
 
 <!-- HANDOFF:AUTO:END -->
