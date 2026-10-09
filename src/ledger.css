@@ -1,0 +1,88 @@
+/* Ledger design system: Swiss / International. Shared by the desktop app, web app and landing page. */
+@font-face { font-family: "Schibsted Grotesk"; src: url(fonts/grotesk.woff2) format("woff2"); font-weight: 400 800; font-display: swap; }
+@font-face { font-family: "Spline Sans Mono"; src: url(fonts/mono.woff2) format("woff2"); font-weight: 400 600; font-display: swap; }
+
+:root {
+  --paper: #f3f0e8;
+  --ink: #141414;
+  --mute: #55524b;
+  --rule: #141414;
+  --hair: #c9c4b6;
+  --accent: #c33207;
+  --on-accent: #fff;
+  --ok: #14653a;
+  --err: #a8201a;
+  --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Spline Sans Mono", ui-monospace, Menlo, Consolas, monospace;
+  --s1: 0.25rem; --s2: 0.5rem; --s3: 1rem; --s4: 1.5rem; --s5: 3rem;
+  --t-small: 0.8125rem;
+  --t-base: 0.9375rem;
+  --t-figure: clamp(2rem, 1.2rem + 4vw, 4.25rem);
+  --dur: 150ms;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper: #121211; --ink: #efece4; --mute: #a5a198; --rule: #efece4; --hair: #3a3935; --accent: #ff6a3d; --on-accent: #121211; --ok: #5fd08f; --err: #ff8a80; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --paper: #121211; --ink: #efece4; --mute: #a5a198; --rule: #efece4; --hair: #3a3935; --accent: #ff6a3d; --on-accent: #121211; --ok: #5fd08f; --err: #ff8a80; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--t-base)/1.5 var(--sans); overflow-wrap: break-word; }
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin: 0; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+.mono, code, td.num, .figure { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.label { font: 600 0.6875rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); }
+.skip { position: absolute; left: var(--s3); top: -4rem; background: var(--ink); color: var(--paper); padding: var(--s2) var(--s3); z-index: 9; }
+.skip:focus { top: var(--s2); }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* Controls */
+.btn { font: 600 var(--t-small)/1 var(--sans); letter-spacing: 0.02em; padding: 0.75rem 1rem; min-height: 2.75rem; background: transparent; color: var(--ink); border: 1px solid var(--ink); border-radius: 0; cursor: pointer; transition: background var(--dur), color var(--dur); display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.btn:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+.btn:active:not(:disabled) { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn.primary:hover:not(:disabled) { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.btn[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.btn.quiet { border-color: transparent; text-decoration: underline; text-underline-offset: 3px; padding-inline: var(--s2); }
+
+input[type="text"], input[type="password"], input[type="number"], input[type="email"], textarea { width: 100%; font: 400 var(--t-small)/1.4 var(--mono); padding: 0.7rem 0.75rem; min-height: 2.75rem; background: transparent; color: var(--ink); border: 1px solid var(--ink); border-radius: 0; }
+textarea { resize: vertical; min-height: 7rem; }
+::placeholder { color: var(--mute); opacity: 1; }
+label.field { display: grid; gap: var(--s2); }
+
+.drop { display: grid; gap: var(--s1); place-items: start; padding: var(--s3); border: 2px solid var(--ink); cursor: pointer; transition: background var(--dur); }
+.drop:hover, .drop.over, .drop:focus-within { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.drop:hover .label, .drop.over .label, .drop:focus-within .label { color: inherit; }
+.drop input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.drop strong { font-size: 1.125rem; letter-spacing: -0.01em; }
+
+/* Ledger table */
+.table-wrap { border-top: 3px solid var(--rule); }
+table.ledger { width: 100%; border-collapse: collapse; font-size: var(--t-small); }
+.ledger caption { text-align: left; padding: var(--s2) 0; }
+.ledger th { text-align: left; font: 600 0.6875rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); padding: var(--s3) var(--s2) var(--s2); border-bottom: 1px solid var(--rule); }
+.ledger td { padding: 0.7rem var(--s2); border-bottom: 1px solid var(--hair); vertical-align: baseline; }
+.ledger tbody tr:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.ledger .num, .ledger th.num { text-align: right; white-space: nowrap; }
+.ledger .addr { font-family: var(--mono); word-break: break-all; }
+.ledger .idx { color: var(--mute); font-family: var(--mono); width: 3rem; }
+.funded td { background: color-mix(in srgb, var(--ok) 10%, transparent); }
+.status-ok { color: var(--ok); font-weight: 600; }
+.status-err { color: var(--err); font-weight: 600; }
+.status-wait { color: var(--mute); }
+
+@media (max-width: 720px) {
+  .ledger thead { position: absolute; left: -9999px; }
+  .ledger tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--s3); padding: var(--s3) 0; border-bottom: 1px solid var(--hair); }
+  .ledger td { border: 0; padding: var(--s1) 0; }
+  .ledger td.addr, .ledger td.idx { grid-column: 1 / -1; }
+  .ledger td.num { text-align: left; }
+  .ledger td[data-label]::before { content: attr(data-label); display: block; font: 600 0.625rem/1.6 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

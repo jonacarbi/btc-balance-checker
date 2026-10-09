@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BTC Balance Checker</title>
+<link rel="icon" href="logo.svg">
+<link rel="stylesheet" href="ledger.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#ledger">Skip to ledger</a>
+<header class="top">
+  <img src="logo.svg" alt="" width="40" height="40">
+  <div><p class="label">Bitcoin address ledger</p><h1>Balance Checker</h1></div>
+  <button class="btn" id="open-settings" type="button">Settings</button>
+</header>
+
+<main class="layout">
+  <aside aria-labelledby="add-h" class="entry">
+    <h2 id="add-h" class="label">01 &mdash; Add addresses</h2>
+    <form id="single" class="stack">
+      <label class="field"><span>Single address</span>
+        <input id="one" type="text" autocomplete="off" spellcheck="false" placeholder="1A1zP1eP5Q&hellip; / bc1q&hellip;"></label>
+      <button class="btn" type="submit">Add address</button>
+    </form>
+    <form id="bulk" class="stack">
+      <label class="field"><span>Bulk paste (newline, comma or space separated)</span>
+        <textarea id="many" spellcheck="false"></textarea></label>
+      <button class="btn" type="submit">Add all</button>
+    </form>
+    <label class="drop" id="drop">
+      <span class="label">Drop .txt / .csv</span>
+      <strong>Drop a file here</strong>
+      <span>or press Enter to choose one</span>
+      <input id="file" type="file" tabindex="-1" accept=".txt,.csv,text/plain,text/csv" multiple>
+    </label>
+    <p id="report" class="report" role="status" aria-live="polite"></p>
+  </aside>
+
+  <section aria-labelledby="ledger-h" class="ledger-col" id="ledger" tabindex="-1">
+    <h2 id="ledger-h" class="label">02 &mdash; Ledger</h2>
+    <div class="total">
+      <p class="label">Total balance</p>
+      <p class="figure" id="total-btc">0.00000000</p>
+      <p class="mono sub"><span id="total-sats">0</span> sats &middot; <span id="count">0</span> addresses</p>
+    </div>
+    <div class="toolbar" role="toolbar" aria-label="Ledger actions">
+      <button class="btn primary" id="check" type="button">Check now</button>
+      <button class="btn" id="watch" type="button" aria-pressed="false">Watch: off</button>
+      <button class="btn" id="export-txt" type="button">Export .txt</button>
+      <button class="btn" id="export-csv" type="button">Export .csv</button>
+      <button class="btn quiet" id="clear" type="button">Clear all</button>
+    </div>
+    <div class="table-wrap">
+      <table class="ledger">
+        <caption class="sr">Addresses and balances</caption>
+        <thead><tr><th scope="col">No.</th><th scope="col">Address</th><th scope="col">Type</th><th scope="col" class="num">BTC</th><th scope="col" class="num">Sats</th><th scope="col">Status</th><th scope="col">Checked</th><th scope="col"><span class="sr">Remove</span></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p id="empty" class="empty">No addresses yet. Paste, type or drop a list on the left.</p>
+    </div>
+  </section>
+</main>
+
+<dialog id="settings" aria-labelledby="set-h">
+  <form id="settings-form" method="dialog" class="stack">
+    <h2 id="set-h">Alert settings</h2>
+    <p class="sub">Alerts fire once per address, the first time a balance appears. Secrets are stored in your OS config folder with owner-only permissions.</p>
+    <fieldset><legend class="label">Telegram</legend>
+      <label class="field"><span>Bot token <em id="tok-set" class="status-ok"></em></span><input name="telegram_token" type="password" autocomplete="off" placeholder="leave blank to keep"></label>
+      <label class="field"><span>Chat ID</span><input name="telegram_chat_id" type="text" autocomplete="off"></label>
+    </fieldset>
+    <fieldset><legend class="label">Email (SMTP)</legend>
+      <label class="field"><span>From / login</span><input name="email_from" type="email" autocomplete="off"></label>
+      <label class="field"><span>App password <em id="pw-set" class="status-ok"></em></span><input name="email_password" type="password" autocomplete="off" placeholder="leave blank to keep"></label>
+      <label class="field"><span>Send alerts to (blank = from)</span><input name="email_to" type="email" autocomplete="off"></label>
+      <div class="two"><label class="field"><span>SMTP host</span><input name="smtp_host" type="text"></label>
+      <label class="field"><span>Port</span><input name="smtp_port" type="number" min="1" max="65535"></label></div>
+    </fieldset>
+    <label class="field"><span>Watch interval (seconds, min 10)</span><input name="interval_secs" type="number" min="10"></label>
+    <div class="toolbar"><button class="btn" type="button" id="test-alert">Send test alert</button><button class="btn" type="button" id="env-btn">Import legacy .env</button></div><input id="env-file" type="file" hidden>
+    <p id="set-msg" class="report" role="status" aria-live="polite"></p>
+    <div class="toolbar"><button class="btn primary" value="save" id="save-settings">Save</button><button class="btn" value="cancel" type="button" id="close-settings">Close</button></div>
+  </form>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>

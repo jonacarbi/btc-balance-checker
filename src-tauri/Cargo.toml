@@ -1,0 +1,31 @@
+[package]
+name = "btc-balance-checker"
+version = "2.0.0"
+description = "Watch Bitcoin addresses for balances and get alerted the first time funds appear."
+edition = "2021"
+
+[lib]
+name = "btc_balance_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-single-instance = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+ureq = { version = "2", features = ["json"] }
+lettre = { version = "0.11", default-features = false, features = ["smtp-transport", "rustls-tls", "builder", "hostname"] }
+bs58 = { version = "0.5", features = ["check"] }
+bech32 = "0.11"
+dirs = "5"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

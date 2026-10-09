@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web checker - BTC Balance Checker</title>
+<meta name="description" content="One-off Bitcoin balance check in your browser. Nothing is stored or sent anywhere except the public mempool.space API.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="text/markdown" href="index.md">
+<link rel="stylesheet" href="../ledger.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#ledger">Skip to results</a>
+<header class="top">
+  <a href="../" aria-label="BTC Balance Checker home"><img src="../logo.svg" alt="" width="40" height="40"></a>
+  <div><p class="label">Web checker &middot; one-off</p><h1>Balance Checker</h1></div>
+  <a class="btn primary" href="../#download">Get the desktop app</a>
+</header>
+<aside class="cta" aria-label="Desktop app">
+  <p><strong>This is the lite version.</strong> No watch mode, no Telegram or email alerts, nothing saved. The free desktop app watches thousands of addresses and alerts you the first time funds appear.</p>
+  <a class="btn" href="../#download">Download for Windows, macOS, Linux</a>
+</aside>
+
+<main class="layout">
+  <section aria-labelledby="add-h" class="entry">
+    <h2 id="add-h" class="label">01 &mdash; Addresses</h2>
+    <form id="single" class="stack">
+      <label class="field"><span>Single address</span>
+        <input id="one" type="text" autocomplete="off" spellcheck="false" placeholder="1A1zP1eP5Q&hellip; / bc1q&hellip;"></label>
+      <button class="btn" type="submit">Add address</button>
+    </form>
+    <form id="bulk" class="stack">
+      <label class="field"><span>Bulk paste (newline, comma or space separated)</span>
+        <textarea id="many" spellcheck="false"></textarea></label>
+      <button class="btn" type="submit">Add all</button>
+    </form>
+    <label class="drop" id="drop" tabindex="0">
+      <span class="label">Drop .txt / .csv</span>
+      <strong>Drop a file here</strong>
+      <span>or press Enter to choose one</span>
+      <input id="file" type="file" tabindex="-1" accept=".txt,.csv,text/plain,text/csv" multiple>
+    </label>
+    <p id="report" class="report" role="status" aria-live="polite"></p>
+  </section>
+
+  <section aria-labelledby="ledger-h" class="ledger-col" id="ledger" tabindex="-1">
+    <h2 id="ledger-h" class="label">02 &mdash; Ledger</h2>
+    <div class="total">
+      <p class="label">Total balance</p>
+      <p class="figure" id="total-btc">0.00000000</p>
+      <p class="mono sub"><span id="total-sats">0</span> sats &middot; <span id="count">0</span> addresses</p>
+    </div>
+    <div class="toolbar" role="toolbar" aria-label="Ledger actions">
+      <button class="btn primary" id="check" type="button">Check balances</button>
+      <button class="btn quiet" id="clear" type="button">Clear all</button>
+    </div>
+    <div class="table-wrap">
+      <table class="ledger">
+        <caption class="sr">Addresses and balances</caption>
+        <thead><tr><th scope="col">No.</th><th scope="col">Address</th><th scope="col">Type</th><th scope="col" class="num">BTC</th><th scope="col" class="num">Sats</th><th scope="col">Status</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p id="empty" class="empty">No addresses yet. Paste, type or drop a list.</p>
+    </div>
+    <p class="sub">Lookups go straight from your browser to mempool.space. Balances include unconfirmed transactions.</p>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

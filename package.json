@@ -1,0 +1,15 @@
+{
+  "name": "btc-balance-checker",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tauri": "tauri",
+    "test": "cargo test --manifest-path src-tauri/Cargo.toml && node --test tests/*.test.mjs && playwright test",
+    "test:web": "node --test tests/*.test.mjs && playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@tauri-apps/cli": "^2"
+  }
+}

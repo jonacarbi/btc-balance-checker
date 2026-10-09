@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BTC Balance Checker - watch Bitcoin addresses, get alerted</title>
+<meta name="description" content="Free desktop app that watches Bitcoin addresses in bulk and alerts you on Telegram and email the first time funds appear. Windows, macOS, Linux.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="alternate" type="text/markdown" href="index.md">
+<link rel="stylesheet" href="ledger.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="./"><img src="logo.svg" alt="" width="32" height="32"><span>BTC Balance Checker</span></a>
+  <nav aria-label="Main"><a href="app/">Web checker</a><a href="#download" class="btn primary">Download</a></nav>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="h1">
+    <p class="label">Open source &middot; Windows &middot; macOS &middot; Linux</p>
+    <h1 id="h1">Know the moment an address gets funded.</h1>
+    <p class="lede">Load hundreds of Bitcoin addresses. The app checks them on a loop and sends one Telegram or email alert the first time a balance appears. Keys never leave your machine because there are no keys: addresses only.</p>
+    <p class="cta-row"><a class="btn primary" href="#download">Download the app</a><a class="btn" href="app/">Check addresses in your browser</a></p>
+  </section>
+
+  <section class="shot" aria-label="Application preview">
+    <figure>
+      <div class="mock" role="img" aria-label="Ledger view: total balance 0.31416000 BTC across 6 addresses, with per-address balances in BTC and sats">
+        <div class="mock-top"><span class="label">Total balance</span><span class="label">6 addresses</span></div>
+        <p class="figure">0.31416000</p>
+        <table class="ledger" aria-hidden="true"><tbody>
+          <tr class="funded"><td class="idx">001</td><td class="addr">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</td><td class="num">0.31416000</td><td class="status-ok">Funded</td></tr>
+          <tr><td class="idx">002</td><td class="addr">3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy</td><td class="num">0.00000000</td><td class="status-wait">Empty</td></tr>
+          <tr><td class="idx">003</td><td class="addr">bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq</td><td class="num">0.00000000</td><td class="status-wait">Empty</td></tr>
+        </tbody></table>
+      </div>
+      <figcaption class="sub">The ledger view. Illustrative sample data.</figcaption>
+    </figure>
+  </section>
+
+  <section class="spec" aria-labelledby="f-h">
+    <h2 id="f-h" class="label">Specification</h2>
+    <dl>
+      <div><dt>01 Input</dt><dd>Add one by one, paste in bulk, or drop a <code>.txt</code> / <code>.csv</code>. P2PKH, P2SH, bech32 and Taproot, each verified by checksum. Duplicates and typos are reported, not swallowed.</dd></div>
+      <div><dt>02 Lookup</dt><dd>Batched requests to blockchain.info with an automatic mempool.space fallback. Rate limits respected.</dd></div>
+      <div><dt>03 Watch</dt><dd>Re-scan on your interval (default 60 s). Balances shown in BTC and sats with a running total.</dd></div>
+      <div><dt>04 Alerts</dt><dd>Telegram and SMTP email, once per address, on first sight of a balance. Credentials stay in your OS config folder, owner-only.</dd></div>
+      <div><dt>05 CLI</dt><dd>Run <code>btc-balance-checker --cli address.txt</code> for the classic terminal loop.</dd></div>
+      <div><dt>06 Local</dt><dd>List, history and settings live on your disk. No account, no telemetry.</dd></div>
+    </dl>
+  </section>
+
+  <section class="download" id="download" aria-labelledby="d-h">
+    <h2 id="d-h" class="label">Download</h2>
+    <p id="dl-status" class="sub" role="status">These links open the releases page until the latest release loads.</p>
+    <ul class="dl-list" id="dl-list">
+      <li data-os="windows"><span class="label">Windows</span><span class="links"><a class="btn" data-asset="exe" href="https://github.com/jonacarbi/btc-balance-checker/releases">Installer .exe</a><a class="btn" data-asset="msi" href="https://github.com/jonacarbi/btc-balance-checker/releases">.msi</a></span></li>
+      <li data-os="macos"><span class="label">macOS</span><span class="links"><a class="btn" data-asset="dmg" href="https://github.com/jonacarbi/btc-balance-checker/releases">Universal .dmg</a></span></li>
+      <li data-os="linux"><span class="label">Linux</span><span class="links"><a class="btn" data-asset="AppImage" href="https://github.com/jonacarbi/btc-balance-checker/releases">.AppImage</a><a class="btn" data-asset="deb" href="https://github.com/jonacarbi/btc-balance-checker/releases">.deb</a><a class="btn" data-asset="rpm" href="https://github.com/jonacarbi/btc-balance-checker/releases">.rpm</a></span></li>
+    </ul>
+    <p class="sub"><a href="https://github.com/jonacarbi/btc-balance-checker/releases">All releases on GitHub</a> &middot; <a href="https://github.com/jonacarbi/btc-balance-checker">Source</a></p>
+  </section>
+</main>
+
+<footer class="foot"><p class="sub">BTC Balance Checker. Read-only: it never asks for keys. For AI agents: <a href="llms.txt">llms.txt</a> &middot; <a href="index.md">Markdown version</a></p></footer>
+<script src="site.js"></script>
+</body>
+</html>

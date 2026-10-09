@@ -1,0 +1,8 @@
+# BTC Balance Checker
+
+> Free, open-source desktop app (Rust + Tauri 2; Windows, macOS, Linux) that watches Bitcoin addresses in bulk and sends a Telegram and/or email alert the first time an address shows a balance. Read-only: it only handles public addresses, never keys. A simplified browser version does one-off checks.
+
+- [Product overview](/index.md): features, downloads, CLI usage
+- [Web checker](/app/index.md): browser-only one-off balance check via mempool.space, no alerts or storage
+- [Releases](https://github.com/jonacarbi/btc-balance-checker/releases): installers (.exe, .msi, .dmg, .AppImage, .deb, .rpm)
+- [Source](https://github.com/jonacarbi/btc-balance-checker)

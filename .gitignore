@@ -1,0 +1,11 @@
+.env
+address.txt
+seen_balances.txt
+*.log
+balance_log.txt
+target/
+node_modules/
+src-tauri/gen/
+test-results/
+shots/
+.DS_Store
