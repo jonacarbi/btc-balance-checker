@@ -35,8 +35,8 @@ _Entry points, important modules, config, secrets location (not values)._
 
 - **Project:** `btc-balance-checker`
 - **Branch:** `main`
-- **Last updated:** 2026-10-09 04:29:33 -03
-- **Built on commit:** 8c56909 — feat: rewrite BTC Balance Checker in Rust/Tauri 2 with web app and landing page (Jonathan Carbiere, 2026-10-09)
+- **Last updated:** 2026-10-09 15:40:40 -03
+- **Built on commit:** fc13bec — docs: record v2.0.0 release in /ai/ state (Jonathan Carbiere, 2026-10-09)
 - **README says:** Watch Bitcoin addresses in bulk and get a Telegram and/or email alert the first time an address shows a balance. Rust + Tauri 2 desktop app (Windows, macOS, Linux), a lite in-browser checker, and a landing page. Read-only: it only ever handles public addresses.
 
 ## How to build / run / test
@@ -83,10 +83,12 @@ _Entry points, important modules, config, secrets location (not values)._
 ## Changes in this commit
 
 - M	ai/changelog.md
-- M	ai/project-state.md
+- M	ai/content.md
+- M	site/index.html
 
 ## Recent history
 
+- fc13bec docs: record v2.0.0 release in /ai/ state _(Jonathan Carbiere, 2026-10-09)_
 - 8c56909 feat: rewrite BTC Balance Checker in Rust/Tauri 2 with web app and landing page _(Jonathan Carbiere, 2026-10-09)_
 
 <!-- HANDOFF:AUTO:END -->
